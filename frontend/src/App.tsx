@@ -1,9 +1,9 @@
 import './App.css'
 
+// Json import
 import data from './CollegeBasketballTeams.json';
 
-console.log(data);
-
+// Define properties of Team object
 interface Team {
   school: string;
   name: string;
@@ -11,11 +11,14 @@ interface Team {
   state: string;
 }
 
+// Header
 function Welcome(){
   return (
     <h1>Welcome to March Madness College Info!</h1>
   )
 }
+
+// School function to display card
 function School({school, name, city, state}:{school: string; name:string; city:string; state:string;}){
 
   return (
@@ -28,11 +31,13 @@ function School({school, name, city, state}:{school: string; name:string; city:s
     </>
   )
 }
+
+// Map through each team and show team card
 function SchoolList(){
   return (
     <>
     {
-      data.teams.map((singleSchool:Team, index:number) => (
+      data.teams.map((singleSchool:Team) => (
       <School {...singleSchool} />
     ))
 
@@ -41,9 +46,8 @@ function SchoolList(){
   );
 }
 
-
+// Main function
 function App() {
-
   return (
     <>
       <Welcome/>
